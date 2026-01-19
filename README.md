@@ -1,8 +1,11 @@
-🌦️ Weather Lanka – Sri Lanka Weather App
+<img width="1920" height="1018" alt="image" src="https://github.com/user-attachments/assets/689b8394-12a9-4daa-ad7d-351b91908b01" />🌦️ Weather Lanka – Sri Lanka Weather App
 
 Weather Lanka is a modern, responsive weather application built using HTML, CSS, and JavaScript.
 It provides real-time (mock/demo + API-ready) weather information for major cities in Sri Lanka with beautiful day/night animations and an interactive UI.
+---
+<img width="960" height="509" alt="image" src="https://github.com/user-attachments/assets/10abbbbb-11ff-4956-8254-f6962b4c4acb" />
 
+---
 🔥 Features
 
 🌍 Weather data for Sri Lankan cities
@@ -18,7 +21,7 @@ It provides real-time (mock/demo + API-ready) weather information for major citi
 ⏳ Loading animation & error handling
 
 💾 Saves last selected city (LocalStorage)
-
+---
 🌤️ Weather details:
 
 Temperature
@@ -30,23 +33,25 @@ Humidity
 Wind Speed
 
 Pressure
-
+---
 🛠️ Built With
 
-HTML5 – Structure
+HTML – Structure
 
-CSS3 – Styling, animations, responsive layout
+CSS – Styling, animations, responsive layout
 
-JavaScript (ES6) – Logic & API handling
+JavaScript  – Logic & API handling
 
 Font Awesome – Weather icons
 
 OpenWeatherMap API (API-ready, mock data used for demo)
-
+---
 📸 Preview
+<img width="1920" height="1018" alt="image" src="https://github.com/user-attachments/assets/222e8450-0713-45d8-ac5f-d289ab7effba" />
+
 
 🌐 Live Demo: ()
-
+---
 🚀 How to Run Locally
 
 Clone the repository
@@ -83,7 +88,7 @@ weather-lanka/
 │
 ├── index.html
 ├── README.md
-
+---
 🎯 Future Improvements
 
 ✅ 7-day weather forecast
@@ -95,7 +100,7 @@ weather-lanka/
 🌡️ Unit toggle (°C / °F)
 
 ☁️ Real API integration (default)
-
+---
 👨‍💻 Author
 
 Dishan
