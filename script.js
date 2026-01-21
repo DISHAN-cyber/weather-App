@@ -109,5 +109,81 @@ function handleSearch(){
 
 
 function filterCityList() {
+    const searchTerm = citySearch.value.toLowerCase();
+    const cityItem = document.querySelectorAll('city-items');
+
+    cityItems.forEach(item =>{
+        const cityName = item.textContent.toLowerCase();
+        if (cityName.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+   
+        if (searchTerm) {
+            cityList.classList.add('show');
+        }
+    
+}
+
+async function fetchWeatherData(city) {
+    showLoader();
+    hideError();
+
+    try{
+        const response = await fetch(`${BASE_URL}?q=${city},LK&appid=${API_KEY}&units=metric`);
+
+        if (!response.ok) {
+           if (response.status === 401){
+            throw new Error('Invali API Key! Please cheak your OpenWeatherMap API Key.');
+        }else if (response.status === 404){
+            throw new Error(`City "${city}" Not found! Please try another city`);
+        }else if (response.status === 429) {
+            throw new Error('Too Many Requests! Please wait a minute before tring again');
+        }else{
+            throw new Error(`API ERROR: ${response.status} ${response.statusText}`);
+        }
+        }
+
+        const date = await response.json();
+
+        const processdDate = {
+            name: {
+                temp: date.main.temp,
+                feels_like: date.main.feels_Like,
+                humidity: date.main.humidity,
+                pressure: date.main.pressure
+            },
+            weather:[{
+                main:date.weather[0].main,
+                description: date.weather[0].description
+            }],
+            wind:{
+                speed: date.wind.speed
+            },
+            sys:{
+                sunrice: date.sys.sunrice,
+                sunset: date.sys.sunset
+            },
+            dt: date.dt,
+            timezone: data.timezone,
+            iconCode: data.weather[0].icon
+        };
+
+        updateWeatherUI(processdDate);
+
+        updateTheme(processdDate.isDaytime);
+    }catch (error){
+        const.error('Error fetching weather data', error);
+        showError(error.message);
+    }finally{
+        hideLoader();
+    }
+}
+
+function isCurrentDaytime(sunrice,sunset,currentTime,timezone){
+    const sunriceTime = (sunrice+timezone) * 1000;
+    const sunsetTime = (sunset+timezone) * 1000;
     
 }
